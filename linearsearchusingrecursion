@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+int rlnsearch(int arr[],int n,int key){
+    int i;
+    if(n<0)
+    return -1;
+    if(arr[n]==key)
+    return n;
+    else
+    return rlnsearch(arr,n-1,key);
+}
+int main()
+{
+    int key,n,result,i,given[30];
+    printf("Enter no.of inputs required\n");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&given[i]);
+    }
+    printf("Enter the required key\n");
+    scanf("%d",&key);
+    result=rlnsearch(given,n-1,key);
+    if(result==-1){
+        printf("the required elemnt is not there in the given array\n");
+
+    }
+    else{
+        printf("at %d position our required elemnent lies",result);
+    }
+
+
+}
