@@ -1,43 +1,35 @@
 #include<stdio.h>
-int pos(int arr[], int key, int low, int high)
-{
-    int mid=(low+high)/2;
-    while(low<=high)
-    {
-    if(arr[mid]==key){
+int bsearch(int arr[],int low, int high,int key){
+    int mid;
+    while(low<=high){
+        mid=(low+high)/2;
+        if(arr[mid]==key)
         return mid;
-    }
-    else if(arr[mid]>key){
+        else if(arr[mid]<key)
+            low=mid+1;
+        else
         high=mid-1;
     }
-    else
-    low=mid+1;
-    }
-return -1;
-
+    return -1;
 }
-int main()
-{
-    int key,array[32],i,n,result,low,high;
-    printf("Enter no.of inputs required\n");
-    scanf("%d",&n);
-    for(i=0;i<n;i++)
-    {
-        scanf("%d",&array[i]);
-    }
-    
-    printf("Enter the required key\n");
-    scanf("%d",&key);
-    low=0;
-    high=n;
-    result=pos(array,key,low,high);
-    if(result==-1){
-        printf("the required elemnt is not there in the given array\n");
+int main(){
+        int low,high,i,n,arr[34],key,result;
+        printf("enter no.of elements reqired\n");
+        scanf("%d",&n);
+        printf("Give elements");
+        for(i=0;i<n;i++){
+            scanf("%d",&arr[i]);
+        }
+        printf("enter search element\n");
+        scanf("%d",&key);
+        low=0;
+        high=n-1;
+        result=bsearch(arr,low,high,key);
+        
+        if(result==-1){
+            printf("The required number is not there in the given array\n");
 
-    }
-    else{
-        printf("at %d position our required elemnent lies",result);
-    }
-
-
+        }
+        else
+        printf("at %d position the required element lies",result);
 }
