@@ -1,0 +1,40 @@
+#include<stdio.h>
+int pos(int arr[], int key, int low, int high)
+{
+    int mid=(low+high)/2;
+    if(arr[mid]==key){
+        return mid;
+    }
+    else if(arr[mid]>key){
+        high=mid-1;
+    }
+    else
+    low=mid+1;
+}
+
+
+int main()
+{
+    int key,array[32],i,n,result,low,high;
+    printf("Enter no.of inputs required\n");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&array[i]);
+    }
+    
+    printf("Enter the required key\n");
+    scanf("%d",&key);
+    low=0;
+    high=n;
+    result=pos(array,key,low,high);
+    if(result==-1){
+        printf("the required elemnt is not there in the given array\n");
+
+    }
+    else{
+        printf("at %d position our required elemnent lies",result);
+    }
+
+
+}
