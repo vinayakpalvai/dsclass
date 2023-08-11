@@ -8,10 +8,10 @@ int rpos(int arr[], int key, int low, int high)
         return mid;
     }
     else if(arr[mid]<key){
-        return rpos(arr,key,mid-1,high);
+        return rpos(arr,key,mid+1,high);
     }
     else 
-        return rpos(arr,key,low,mid+1);
+        return rpos(arr,key,low,mid-1);
     }
     else
         return -1;
@@ -31,7 +31,7 @@ int main()
     printf("Enter the required key\n");
     scanf("%d",&key);
     low=0;
-    high=n;
+    high=n-1;
    // mid=(low+high)/2;
     result=rpos(array,key,low,high);
     if(result==-1){
