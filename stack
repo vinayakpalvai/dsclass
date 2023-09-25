@@ -79,6 +79,9 @@ int main(){
             case 6:
                 goto end;
                 break;
+            default:
+                printf("Select from the given options only");
+                break;
         }
         end:
         printf("program executed succesfully");
